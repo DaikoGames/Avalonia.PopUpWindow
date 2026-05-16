@@ -34,3 +34,6 @@ jobs:
         files: ./publish/PopUpWindow.1.0.8${{github.run_number}}.nupkg
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+    - name: Publish to Nuget
+      run: dotnet nuget push ./publish/PopUpWindow.1.0.8${{github.run_number}}.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate

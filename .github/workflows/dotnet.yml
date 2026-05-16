@@ -28,5 +28,5 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         tag_name: 1.0.8${{github.run_number}}
-        file: ./publish/PopUpWindow.1.0.8${{github.run_number}}.nupkg
+        path: ./publish/PopUpWindow.1.0.8${{github.run_number}}.nupkg
     

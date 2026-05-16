@@ -28,7 +28,7 @@ jobs:
     - name: Pack Nuget Package
       run: dotnet pack -c Release /p:Version=1.0.8${{github.run_number}} -p:PackageLicenseExpression=MIT -o publish
     - name: Publish to Github
-      uses: actions/upload-artifact@v4
+      uses: softprops/action-gh-release@v2
       with:
         tag_name: 1.0.8${{github.run_number}}
         path: ./publish/PopUpWindow.1.0.8${{github.run_number}}.nupkg

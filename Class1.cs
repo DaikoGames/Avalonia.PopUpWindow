@@ -28,7 +28,10 @@ namespace PopUpWindowNamespace
             var MainText = new TextBlock { Text = text };
             MainText.Background = Avalonia.Media.Brushes.Transparent;
             MainText.Foreground = new SolidColorBrush(Avalonia.Media.Color.FromRgb(TextRed, TextGreen, TextBlue));
-            if(popUpIcon == null)
+            PopUpWindowCanvas.Children.Add(MainText);
+            ActualPopUp.Content = PopUpWindowCanvas;
+
+            if (popUpIcon == null)
             {
                 Canvas.SetLeft(MainText, 15);
                 Canvas.SetTop(MainText, 15);
@@ -58,12 +61,40 @@ namespace PopUpWindowNamespace
                 PopUpWindowCanvas.Children.Add(Progressbar);
             }
 
-            PopUpWindowCanvas.Children.Add(MainText);
-            ActualPopUp.Content = PopUpWindowCanvas;
+            if(yesButton == true)
+            {
+                Button YesButton = new Button();
+                YesButton.Width = 25;
+                YesButton.Height = 15;
+                Canvas.SetLeft(YesButton, width / 2);
+                Canvas.SetTop(YesButton, 70);
+                YesButton.Content = "Yes";
+                PopUpWindowCanvas.Children.Add(YesButton);
+            }
+
+            if(okButton == true)
+            {
+                Button OkButton = new Button();
+                OkButton.Width = 25;
+                OkButton.Height = 15;
+                Canvas.SetLeft(OkButton, width / 2 + 25);
+                Canvas.SetTop(OkButton, 70);
+                OkButton.Content = "Ok";
+                PopUpWindowCanvas.Children.Add(OkButton);
+            }
+
+            if(noButton == true)
+            {
+                Button NoButton = new Button();
+                NoButton.Width = 25;
+                NoButton.Height = 15;
+                Canvas.SetLeft(NoButton, width / 2 + 50);
+                Canvas.SetTop(NoButton, 70);
+                NoButton.Content = "No";
+                PopUpWindowCanvas.Children.Add(NoButton);
+            }
 
             ActualPopUp.Show();
-
-            
         }
     }
 }

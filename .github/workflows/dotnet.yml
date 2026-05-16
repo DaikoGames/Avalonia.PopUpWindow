@@ -25,7 +25,7 @@ jobs:
     - name: Pack Nuget Package
       run: dotnet pack -c Release /p:Version=1.0.8 -p:PackageLicenseExpression=MIT -o publish
     - name: Publish to Github
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         tag_name: 1.0.8${{github.run_number}}
         file: |

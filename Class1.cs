@@ -22,6 +22,7 @@ namespace PopUpWindowNamespace
                 Width = width,
                 Height = height
             };
+            ActualPopUp.CanResize = false;
             ActualPopUp.Icon = new WindowIcon(windowIcon);
             var PopUpWindowCanvas = new Canvas();
             PopUpWindowCanvas.Background = new SolidColorBrush(Avalonia.Media.Color.FromRgb(WindowRed, WindowGreen, WindowBlue));
@@ -54,8 +55,8 @@ namespace PopUpWindowNamespace
             if(progressBar == true)
             {
                 ProgressBar Progressbar = new ProgressBar();
-                Progressbar.Width = 100;
-                Progressbar.Height = 25;
+                Progressbar.Width = width - 30;
+                Progressbar.Height = 30;
                 Canvas.SetLeft(Progressbar, 15);
                 Canvas.SetTop(Progressbar, 50);
                 PopUpWindowCanvas.Children.Add(Progressbar);
@@ -64,8 +65,8 @@ namespace PopUpWindowNamespace
             if(yesButton == true)
             {
                 Button YesButton = new Button();
-                YesButton.Width = 25;
-                YesButton.Height = 15;
+                YesButton.Width = 50;
+                YesButton.Height = 30;
                 Canvas.SetLeft(YesButton, width / 2);
                 Canvas.SetTop(YesButton, 70);
                 YesButton.Content = "Yes";
@@ -75,8 +76,8 @@ namespace PopUpWindowNamespace
             if(okButton == true)
             {
                 Button OkButton = new Button();
-                OkButton.Width = 25;
-                OkButton.Height = 15;
+                OkButton.Width = 50;
+                OkButton.Height = 30;
                 Canvas.SetLeft(OkButton, width / 2 + 25);
                 Canvas.SetTop(OkButton, 70);
                 OkButton.Content = "Ok";
@@ -86,14 +87,14 @@ namespace PopUpWindowNamespace
             if(noButton == true)
             {
                 Button NoButton = new Button();
-                NoButton.Width = 25;
+                NoButton.Width = 50;
                 NoButton.Height = 15;
                 Canvas.SetLeft(NoButton, width / 2 + 50);
                 Canvas.SetTop(NoButton, 70);
                 NoButton.Content = "No";
                 PopUpWindowCanvas.Children.Add(NoButton);
             }
-
+            
             ActualPopUp.Show();
         }
     }

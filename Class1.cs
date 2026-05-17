@@ -9,11 +9,6 @@ namespace PopUpWindowNamespace
 {
     public class PopUp
     {
-        public TextBlock MainText;
-        public Button Button1button;
-        public Button Button2button;
-        public Button Button3button;
-
         public static void PopUpWindow(bool Markdown, byte WindowRed, byte WindowGreen, byte WindowBlue, byte TextRed, byte TextGreen, byte TextBlue, int width, int height, string title, string windowIcon, string popUpIcon, string text, bool progressBar, bool okButton, bool yesButton, bool noButton)
         {
             var ActualPopUp = new Window
@@ -56,7 +51,7 @@ namespace PopUpWindowNamespace
             {
                 ProgressBar Progressbar = new ProgressBar();
                 Progressbar.Width = width - 30;
-                Progressbar.Height = 30;
+                Progressbar.Height = 15;
                 Canvas.SetLeft(Progressbar, 15);
                 Canvas.SetTop(Progressbar, 50);
                 PopUpWindowCanvas.Children.Add(Progressbar);
@@ -70,6 +65,8 @@ namespace PopUpWindowNamespace
                 Canvas.SetLeft(YesButton, width / 2);
                 Canvas.SetTop(YesButton, 70);
                 YesButton.Content = "Yes";
+                YesButton.Foreground = new SolidColorBrush(Avalonia.Media.Color.FromRgb(TextRed, TextGreen, TextBlue));
+                YesButton.BorderBrush = new SolidColorBrush(Avalonia.Media.Color.FromRgb(TextRed, TextGreen, TextBlue));
                 PopUpWindowCanvas.Children.Add(YesButton);
             }
 
@@ -78,9 +75,11 @@ namespace PopUpWindowNamespace
                 Button OkButton = new Button();
                 OkButton.Width = 50;
                 OkButton.Height = 30;
-                Canvas.SetLeft(OkButton, width / 2 + 25);
+                Canvas.SetLeft(OkButton, width / 2 + 60);
                 Canvas.SetTop(OkButton, 70);
                 OkButton.Content = "Ok";
+                OkButton.Foreground = new SolidColorBrush(Avalonia.Media.Color.FromRgb(TextRed, TextGreen, TextBlue));
+                OkButton.BorderBrush = new SolidColorBrush(Avalonia.Media.Color.FromRgb(TextRed, TextGreen, TextBlue));
                 PopUpWindowCanvas.Children.Add(OkButton);
             }
 
@@ -88,10 +87,12 @@ namespace PopUpWindowNamespace
             {
                 Button NoButton = new Button();
                 NoButton.Width = 50;
-                NoButton.Height = 15;
-                Canvas.SetLeft(NoButton, width / 2 + 50);
+                NoButton.Height = 30;
+                Canvas.SetLeft(NoButton, width / 2 + 120);
                 Canvas.SetTop(NoButton, 70);
                 NoButton.Content = "No";
+                NoButton.Foreground = new SolidColorBrush(Avalonia.Media.Color.FromRgb(TextRed, TextGreen, TextBlue));
+                NoButton.BorderBrush = new SolidColorBrush(Avalonia.Media.Color.FromRgb(TextRed, TextGreen, TextBlue));
                 PopUpWindowCanvas.Children.Add(NoButton);
             }
             

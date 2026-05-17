@@ -4,6 +4,7 @@ using Avalonia.Layout;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using System.Runtime.CompilerServices;
+using Avalonia.Themes.Fluent;
 
 namespace PopUpWindowNamespace
 {
@@ -17,7 +18,6 @@ namespace PopUpWindowNamespace
                 Width = width,
                 Height = height
             };
-
             ActualPopUp.CanResize = false;
             ActualPopUp.Icon = new WindowIcon(windowIcon);
             var PopUpWindowCanvas = new Canvas();

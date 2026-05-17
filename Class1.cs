@@ -4,7 +4,6 @@ using Avalonia.Layout;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using System.Runtime.CompilerServices;
-using Avalonia.Themes.Fluent;
 
 namespace PopUpWindowNamespace
 {
@@ -53,7 +52,6 @@ namespace PopUpWindowNamespace
                 ProgressBar Progressbar = new ProgressBar();
                 Progressbar.Width = width - 30;
                 Progressbar.Height = 15;
-                Progressbar.Background = Avalonia.Media.Brushes.Transparent;
                 Progressbar.Foreground = new SolidColorBrush(TextColor);
                 Canvas.SetLeft(Progressbar, 15);
                 Canvas.SetTop(Progressbar, 50);
@@ -68,7 +66,6 @@ namespace PopUpWindowNamespace
                 Canvas.SetLeft(YesButton, width / 2);
                 Canvas.SetTop(YesButton, 70);
                 YesButton.Content = "Yes";
-                YesButton.Background = Avalonia.Media.Brushes.Transparent;
                 YesButton.Foreground = new SolidColorBrush(TextColor);
                 YesButton.BorderBrush = new SolidColorBrush(TextColor);
                 PopUpWindowCanvas.Children.Add(YesButton);
@@ -82,7 +79,6 @@ namespace PopUpWindowNamespace
                 Canvas.SetLeft(OkButton, width / 2 + 60);
                 Canvas.SetTop(OkButton, 70);
                 OkButton.Content = "Ok";
-                OkButton.Background = Avalonia.Media.Brushes.Transparent;
                 OkButton.Foreground = new SolidColorBrush(TextColor);
                 OkButton.BorderBrush = new SolidColorBrush(TextColor);
                 PopUpWindowCanvas.Children.Add(OkButton);
@@ -96,7 +92,6 @@ namespace PopUpWindowNamespace
                 Canvas.SetLeft(NoButton, width / 2 + 120);
                 Canvas.SetTop(NoButton, 70);
                 NoButton.Content = "No";
-                NoButton.Background = Avalonia.Media.Brushes.Transparent;
                 NoButton.Foreground = new SolidColorBrush(TextColor);
                 NoButton.BorderBrush = new SolidColorBrush(TextColor);
                 PopUpWindowCanvas.Children.Add(NoButton);

@@ -9,7 +9,7 @@ namespace PopUpWindowNamespace
 {
     public class PopUp
     {
-        public async void PopUpWindow(bool Markdown, Avalonia.Media.Color WindowColour, Avalonia.Media.Color TextColour, int width, int height, string windowIcon, string title, string popUpIcon, string text, bool progressBar, bool okButton, bool yesButton, bool noButton)
+        public async void PopUpWindow(bool Markdown, Avalonia.Media.Color WindowColor, Avalonia.Media.Color TextColor, int width, int height, string windowIcon, string title, string popUpIcon, string text, bool progressBar, bool okButton, bool yesButton, bool noButton)
         {
             var ActualPopUp = new Window
             {
@@ -21,10 +21,10 @@ namespace PopUpWindowNamespace
             ActualPopUp.CanResize = false;
             ActualPopUp.Icon = new WindowIcon(windowIcon);
             var PopUpWindowCanvas = new Canvas();
-            PopUpWindowCanvas.Background = new SolidColorBrush(WindowColour);
+            PopUpWindowCanvas.Background = new SolidColorBrush(WindowColor);
             var MainText = new TextBlock { Text = text };
             MainText.Background = Avalonia.Media.Brushes.Transparent;
-            MainText.Foreground = new SolidColorBrush(TextColour);
+            MainText.Foreground = new SolidColorBrush(TextColor);
             PopUpWindowCanvas.Children.Add(MainText);
             ActualPopUp.Content = PopUpWindowCanvas;
 
@@ -53,8 +53,8 @@ namespace PopUpWindowNamespace
                 ProgressBar Progressbar = new ProgressBar();
                 Progressbar.Width = width - 30;
                 Progressbar.Height = 15;
-                Progressbar.Background = new SolidColorBrush(Avalonia.Media.Colors.Transparent);
-                Progressbar.Foreground = new SolidColorBrush(TextColour);
+                Progressbar.Background = Avalonia.Media.Brushes.Transparent;
+                Progressbar.Foreground = new SolidColorBrush(TextColor);
                 Canvas.SetLeft(Progressbar, 15);
                 Canvas.SetTop(Progressbar, 50);
                 PopUpWindowCanvas.Children.Add(Progressbar);
@@ -68,9 +68,9 @@ namespace PopUpWindowNamespace
                 Canvas.SetLeft(YesButton, width / 2);
                 Canvas.SetTop(YesButton, 70);
                 YesButton.Content = "Yes";
-                YesButton.Background = new SolidColorBrush(Avalonia.Media.Colors.Transparent);
-                YesButton.Foreground = new SolidColorBrush(TextColour);
-                YesButton.BorderBrush = new SolidColorBrush(TextColour);
+                YesButton.Background = Avalonia.Media.Brushes.Transparent;
+                YesButton.Foreground = new SolidColorBrush(TextColor);
+                YesButton.BorderBrush = new SolidColorBrush(TextColor);
                 PopUpWindowCanvas.Children.Add(YesButton);
             }
 
@@ -82,9 +82,9 @@ namespace PopUpWindowNamespace
                 Canvas.SetLeft(OkButton, width / 2 + 60);
                 Canvas.SetTop(OkButton, 70);
                 OkButton.Content = "Ok";
-                OkButton.Background = new SolidColorBrush(Avalonia.Media.Colors.Transparent);
-                OkButton.Foreground = new SolidColorBrush(TextColour);
-                OkButton.BorderBrush = new SolidColorBrush(TextColour);
+                OkButton.Background = Avalonia.Media.Brushes.Transparent;
+                OkButton.Foreground = new SolidColorBrush(TextColor);
+                OkButton.BorderBrush = new SolidColorBrush(TextColor);
                 PopUpWindowCanvas.Children.Add(OkButton);
             }
 
@@ -96,9 +96,9 @@ namespace PopUpWindowNamespace
                 Canvas.SetLeft(NoButton, width / 2 + 120);
                 Canvas.SetTop(NoButton, 70);
                 NoButton.Content = "No";
-                NoButton.Background = new SolidColorBrush(Avalonia.Media.Colors.Transparent);
-                NoButton.Foreground = new SolidColorBrush(TextColour);
-                NoButton.BorderBrush = new SolidColorBrush(TextColour);
+                NoButton.Background = Avalonia.Media.Brushes.Transparent;
+                NoButton.Foreground = new SolidColorBrush(TextColor);
+                NoButton.BorderBrush = new SolidColorBrush(TextColor);
                 PopUpWindowCanvas.Children.Add(NoButton);
             }
             

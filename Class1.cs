@@ -9,7 +9,7 @@ namespace PopUpWindowNamespace
 {
     public class PopUp
     {
-        public async Task PopUpWindow(bool Markdown, Avalonia.Media.Color WindowColour, Avalonia.Media.Color TextColour, int width, int height, string windowIcon, string title, string popUpIcon, string text, bool progressBar, bool okButton, bool yesButton, bool noButton)
+        public async void PopUpWindow(bool Markdown, Avalonia.Media.Color WindowColour, Avalonia.Media.Color TextColour, int width, int height, string windowIcon, string title, string popUpIcon, string text, bool progressBar, bool okButton, bool yesButton, bool noButton)
         {
             var ActualPopUp = new Window
             {

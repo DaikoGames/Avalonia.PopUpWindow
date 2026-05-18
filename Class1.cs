@@ -21,7 +21,7 @@ namespace PopUpWindowNamespace
             ActualPopUp.Icon = new WindowIcon(windowIcon);
             var PopUpWindowCanvas = new Canvas();
             PopUpWindowCanvas.Background = new SolidColorBrush(WindowColor);
-            var MainText = new TextBlock { Text = text };
+            var MainText = new TextBlock { Text = text, Width = width - 30, Height = height - 15 };
             MainText.Background = Avalonia.Media.Brushes.Transparent;
             MainText.Foreground = new SolidColorBrush(TextColor);
             PopUpWindowCanvas.Children.Add(MainText);

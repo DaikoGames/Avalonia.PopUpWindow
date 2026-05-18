@@ -3,7 +3,7 @@ This is a WIP nuget package that lets you run a pop up window easily in avalonia
 
 this is a good example of a code you can do with the nuget package: 
 
-using Avalonia.Controls;
+'''using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Interactivity;
 using PopUpWindowNamespace;
@@ -44,4 +44,4 @@ namespace popUpTest
             Trace.Write("\n No Button was pressed :) but outside the initialization void \n");
         }
     }
-}
+}'''

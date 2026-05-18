@@ -10,7 +10,15 @@ namespace PopUpWindowNamespace
 {
     public class PopUp
     {
-        Window ActualPopUp = new Window();
+        public Window ActualPopUp = new Window();
+        public ProgressBar Progressbar = new ProgressBar();
+        public Button YesButton = new Button();
+        public Button OkButton = new Button();
+        public Button NoButton = new Button();
+        public bool okButtonPressed = false;
+        public bool noButtonPressed = false;
+        public bool yesButtonPressed = false;
+
         public async void PopUpWindow(bool Markdown, Avalonia.Media.Color WindowColor, Avalonia.Media.Color TextColor, int width, int height, string windowIcon, string title, string popUpIcon, string text, bool progressBar, bool okButton, bool yesButton, bool noButton)
         {
             ActualPopUp.Title = title;
@@ -48,7 +56,6 @@ namespace PopUpWindowNamespace
 
             if(progressBar == true)
             {
-                ProgressBar Progressbar = new ProgressBar();
                 Progressbar.Width = width - 30;
                 Progressbar.Height = 15;
                 Progressbar.Foreground = new SolidColorBrush(TextColor);
@@ -59,7 +66,7 @@ namespace PopUpWindowNamespace
 
             if(yesButton == true)
             {
-                Button YesButton = new Button();
+                yesButtonPressed = true;
                 YesButton.Width = 50;
                 YesButton.Height = 30;
                 Canvas.SetLeft(YesButton, width / 2);
@@ -68,12 +75,12 @@ namespace PopUpWindowNamespace
                 YesButton.Foreground = new SolidColorBrush(TextColor);
                 YesButton.BorderBrush = new SolidColorBrush(TextColor);
                 PopUpWindowCanvas.Children.Add(YesButton);
-                YesButton.Click += PopUpClose;
+                YesButton.Click += PopUpClick;
             }
 
             if(okButton == true)
             {
-                Button OkButton = new Button();
+                okButtonPressed = true;
                 OkButton.Width = 50;
                 OkButton.Height = 30;
                 Canvas.SetLeft(OkButton, width / 2 + 60);
@@ -82,12 +89,12 @@ namespace PopUpWindowNamespace
                 OkButton.Foreground = new SolidColorBrush(TextColor);
                 OkButton.BorderBrush = new SolidColorBrush(TextColor);
                 PopUpWindowCanvas.Children.Add(OkButton);
-                OkButton.Click += PopUpClose;
+                OkButton.Click += PopUpClick;
             }
 
             if(noButton == true)
             {
-                Button NoButton = new Button();
+                noButtonPressed = true;
                 NoButton.Width = 50;
                 NoButton.Height = 30;
                 Canvas.SetLeft(NoButton, width / 2 + 120);
@@ -96,15 +103,15 @@ namespace PopUpWindowNamespace
                 NoButton.Foreground = new SolidColorBrush(TextColor);
                 NoButton.BorderBrush = new SolidColorBrush(TextColor);
                 PopUpWindowCanvas.Children.Add(NoButton);
-                NoButton.Click += PopUpClose;
+                NoButton.Click += PopUpClick;
             }
             
             ActualPopUp.Show();
         }
 
-        private void PopUpClose(object ?sender, RoutedEventArgs e)
+        private void PopUpClick(object ?sender, RoutedEventArgs e)
         {
-            ActualPopUp.Close();
+            
         }
     }
 }

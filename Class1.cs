@@ -106,15 +106,15 @@ namespace PopUpWindowNamespace
             ActualPopUp.Show();
         }
 
-        private void YesClick(object ?sender, RoutedEventArgs e)
+        public void YesClick(object ?sender, RoutedEventArgs e)
         {
             yesButtonPressed = true;
         }
-        private void OkClick(object? sender, RoutedEventArgs e)
+        public void OkClick(object? sender, RoutedEventArgs e)
         {
             okButtonPressed = true;
         }
-        private void NoClick(object? sender, RoutedEventArgs e)
+        public void NoClick(object? sender, RoutedEventArgs e)
         {
             noButtonPressed = true;
         }

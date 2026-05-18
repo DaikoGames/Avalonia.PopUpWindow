@@ -66,7 +66,6 @@ namespace PopUpWindowNamespace
 
             if(yesButton == true)
             {
-                yesButtonPressed = true;
                 YesButton.Width = 50;
                 YesButton.Height = 30;
                 Canvas.SetLeft(YesButton, width / 2);
@@ -75,12 +74,11 @@ namespace PopUpWindowNamespace
                 YesButton.Foreground = new SolidColorBrush(TextColor);
                 YesButton.BorderBrush = new SolidColorBrush(TextColor);
                 PopUpWindowCanvas.Children.Add(YesButton);
-                YesButton.Click += PopUpClick;
+                YesButton.Click += YesClick;
             }
 
             if(okButton == true)
             {
-                okButtonPressed = true;
                 OkButton.Width = 50;
                 OkButton.Height = 30;
                 Canvas.SetLeft(OkButton, width / 2 + 60);
@@ -89,12 +87,11 @@ namespace PopUpWindowNamespace
                 OkButton.Foreground = new SolidColorBrush(TextColor);
                 OkButton.BorderBrush = new SolidColorBrush(TextColor);
                 PopUpWindowCanvas.Children.Add(OkButton);
-                OkButton.Click += PopUpClick;
+                OkButton.Click += OkClick;
             }
 
             if(noButton == true)
             {
-                noButtonPressed = true;
                 NoButton.Width = 50;
                 NoButton.Height = 30;
                 Canvas.SetLeft(NoButton, width / 2 + 120);
@@ -103,15 +100,23 @@ namespace PopUpWindowNamespace
                 NoButton.Foreground = new SolidColorBrush(TextColor);
                 NoButton.BorderBrush = new SolidColorBrush(TextColor);
                 PopUpWindowCanvas.Children.Add(NoButton);
-                NoButton.Click += PopUpClick;
+                NoButton.Click += NoClick;
             }
             
             ActualPopUp.Show();
         }
 
-        private void PopUpClick(object ?sender, RoutedEventArgs e)
+        private void YesClick(object ?sender, RoutedEventArgs e)
         {
-            
+            yesButtonPressed = true;
+        }
+        private void OkClick(object? sender, RoutedEventArgs e)
+        {
+            okButtonPressed = true;
+        }
+        private void NoClick(object? sender, RoutedEventArgs e)
+        {
+            noButtonPressed = true;
         }
     }
 }

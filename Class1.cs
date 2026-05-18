@@ -1,5 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Interactivity;
 using Avalonia.Layout;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
@@ -9,14 +10,12 @@ namespace PopUpWindowNamespace
 {
     public class PopUp
     {
+        Window ActualPopUp = new Window();
         public async void PopUpWindow(bool Markdown, Avalonia.Media.Color WindowColor, Avalonia.Media.Color TextColor, int width, int height, string windowIcon, string title, string popUpIcon, string text, bool progressBar, bool okButton, bool yesButton, bool noButton)
         {
-            var ActualPopUp = new Window
-            {
-                Title = title,
-                Width = width,
-                Height = height
-            };
+            ActualPopUp.Title = title;
+            ActualPopUp.Width = width;
+            ActualPopUp.Height = height;
             ActualPopUp.CanResize = false;
             ActualPopUp.Icon = new WindowIcon(windowIcon);
             var PopUpWindowCanvas = new Canvas();
@@ -69,6 +68,7 @@ namespace PopUpWindowNamespace
                 YesButton.Foreground = new SolidColorBrush(TextColor);
                 YesButton.BorderBrush = new SolidColorBrush(TextColor);
                 PopUpWindowCanvas.Children.Add(YesButton);
+                YesButton.Click += PopUpClose;
             }
 
             if(okButton == true)
@@ -82,6 +82,7 @@ namespace PopUpWindowNamespace
                 OkButton.Foreground = new SolidColorBrush(TextColor);
                 OkButton.BorderBrush = new SolidColorBrush(TextColor);
                 PopUpWindowCanvas.Children.Add(OkButton);
+                OkButton.Click += PopUpClose;
             }
 
             if(noButton == true)
@@ -95,9 +96,15 @@ namespace PopUpWindowNamespace
                 NoButton.Foreground = new SolidColorBrush(TextColor);
                 NoButton.BorderBrush = new SolidColorBrush(TextColor);
                 PopUpWindowCanvas.Children.Add(NoButton);
+                NoButton.Click += PopUpClose;
             }
             
             ActualPopUp.Show();
+        }
+
+        private void PopUpClose(object ?sender, RoutedEventArgs e)
+        {
+            ActualPopUp.Close();
         }
     }
 }

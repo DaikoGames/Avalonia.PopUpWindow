@@ -5,6 +5,7 @@ using Avalonia.Layout;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using System.Runtime.CompilerServices;
+using Markdown.Avalonia;
 
 namespace PopUpWindowNamespace
 {
@@ -32,7 +33,20 @@ namespace PopUpWindowNamespace
             MainText.Background = Avalonia.Media.Brushes.Transparent;
             MainText.Foreground = new SolidColorBrush(TextColor);
             PopUpWindowCanvas.Children.Add(MainText);
-            ActualPopUp.Content = PopUpWindowCanvas;
+
+            if(Markdown == true)
+            {
+                var MarkdownView = new MarkdownScrollViewer();
+                MarkdownView.Markdown = text;
+                ActualPopUp.Content = MarkdownView;
+            }
+
+            if(Markdown == false)
+            {
+                ActualPopUp.Content = PopUpWindowCanvas;
+            }
+
+
 
             if (popUpIcon == null)
             {

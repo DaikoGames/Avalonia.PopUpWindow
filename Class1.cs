@@ -45,7 +45,7 @@ namespace PopUpWindowNamespace
                 MarkdownView.Markdown = text;
                 if(popUpIcon!= null)
                 {
-                    Canvas.SetLeft(MarkdownView, 70);
+                    Canvas.SetLeft(MarkdownView, 80);
                     Canvas.SetTop(MarkdownView, 15);
                 }
                 if(popUpIcon == null)
@@ -172,7 +172,7 @@ namespace PopUpWindowNamespace
             Canvas.SetTop(YesButton, ActualPopUp.Height - 15);
             Canvas.SetLeft(OkButton, ActualPopUp.Width / 2 + 60);
             Canvas.SetTop(OkButton, ActualPopUp.Height - 15);
-            Canvas.SetLeft(NoButton, ActualPopUp.Height / 2 + 120);
+            Canvas.SetLeft(NoButton, ActualPopUp.Width / 2 + 120);
             Canvas.SetTop(NoButton, ActualPopUp.Height - 15);
         }
     }

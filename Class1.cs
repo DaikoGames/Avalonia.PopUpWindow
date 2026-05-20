@@ -22,7 +22,7 @@ namespace PopUpWindowNamespace
         public bool noButtonPressed = false;
         public bool yesButtonPressed = false;
 
-        public async void PopUpWindow(bool Markdown, Avalonia.Media.Color WindowColor, Avalonia.Media.Color TextColor, int width, int height, string windowIcon, string title, string popUpIcon, string text, bool progressBar, bool okButton, bool yesButton, bool noButton)
+        public async void PopUpWindow(bool Markdown, bool CanResize, Avalonia.Media.Color WindowColor, Avalonia.Media.Color TextColor, int width, int height, string windowIcon, string title, string popUpIcon, string text, bool progressBar, bool okButton, bool yesButton, bool noButton)
         {
             ActualPopUp.Title = title;
             ActualPopUp.Width = width;
@@ -43,8 +43,16 @@ namespace PopUpWindowNamespace
                 MarkdownView.Height = height - 50;
                 MarkdownView.ZIndex = 1;
                 MarkdownView.Markdown = text;
-                Canvas.SetLeft(MarkdownView, 60);
-                Canvas.SetTop(MarkdownView, 15);
+                if(popUpIcon!= null)
+                {
+                    Canvas.SetLeft(MarkdownView, 70);
+                    Canvas.SetTop(MarkdownView, 15);
+                }
+                if(popUpIcon == null)
+                {
+                    Canvas.SetLeft(MarkdownView, 15);
+                    Canvas.SetTop(MarkdownView, 15);
+                }
                 PopUpWindowCanvas.Children.Add(MarkdownView);
             }
 
@@ -134,19 +142,38 @@ namespace PopUpWindowNamespace
             }
             
             ActualPopUp.Show();
+
+            if(CanResize == true)
+            {
+                ActualPopUp.SizeChanged += Resized;
+            }
         }
 
         public void YesClick(object ?sender, RoutedEventArgs e)
         {
             yesButtonPressed = true;
         }
-        public void OkClick(object? sender, RoutedEventArgs e)
+        public void OkClick(object ?sender, RoutedEventArgs e)
         {
             okButtonPressed = true;
         }
-        public void NoClick(object? sender, RoutedEventArgs e)
+        public void NoClick(object ?sender, RoutedEventArgs e)
         {
             noButtonPressed = true;
+        }
+
+        public void Resized(object ?sender, RoutedEventArgs e)
+        {
+            MainText.Width = ActualPopUp.Width - 30;
+            MainText.Height = ActualPopUp.Height - 15;
+            Progressbar.Width = ActualPopUp.Width - 30;
+            Canvas.SetTop(Progressbar, ActualPopUp.Height - 35);
+            Canvas.SetLeft(YesButton, ActualPopUp.Width / 2);
+            Canvas.SetTop(YesButton, ActualPopUp.Height - 15);
+            Canvas.SetLeft(OkButton, ActualPopUp.Width / 2 + 60);
+            Canvas.SetTop(OkButton, ActualPopUp.Height - 15);
+            Canvas.SetLeft(NoButton, ActualPopUp.Height / 2 + 120);
+            Canvas.SetTop(NoButton, ActualPopUp.Height - 15);
         }
     }
 }

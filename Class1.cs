@@ -33,7 +33,6 @@ namespace PopUpWindowNamespace
             PopUpWindowCanvas.Background = new SolidColorBrush(WindowColor);
             MainText.Background = Avalonia.Media.Brushes.Transparent;
             MainText.Foreground = new SolidColorBrush(TextColor);
-            PopUpWindowCanvas.Children.Add(MainText);
 
             ActualPopUp.Content = PopUpWindowCanvas;
 
@@ -44,6 +43,8 @@ namespace PopUpWindowNamespace
                 MarkdownView.Height = height - 50;
                 MarkdownView.ZIndex = 1;
                 MarkdownView.Markdown = text;
+                Canvas.SetLeft(MarkdownView, 30);
+                Canvas.SetTop(MarkdownView, 30);
                 PopUpWindowCanvas.Children.Add(MarkdownView);
             }
 
@@ -52,7 +53,11 @@ namespace PopUpWindowNamespace
                 MainText.Text = text;
                 MainText.Width = width - 30;
                 MainText.Height = height - 15;
+                Canvas.SetLeft(MainText, 30);
+                Canvas.SetTop(MainText, 30);
             }
+
+            PopUpWindowCanvas.Children.Add(MainText);
 
             if (popUpIcon == null)
             {

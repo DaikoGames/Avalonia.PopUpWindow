@@ -43,8 +43,8 @@ namespace PopUpWindowNamespace
                 MarkdownView.Height = height - 50;
                 MarkdownView.ZIndex = 1;
                 MarkdownView.Markdown = text;
-                Canvas.SetLeft(MarkdownView, 30);
-                Canvas.SetTop(MarkdownView, 30);
+                Canvas.SetLeft(MarkdownView, 60);
+                Canvas.SetTop(MarkdownView, 15);
                 PopUpWindowCanvas.Children.Add(MarkdownView);
             }
 

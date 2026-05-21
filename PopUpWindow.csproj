@@ -6,11 +6,8 @@
     <Nullable>enable</Nullable>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="Readme.md" Pack="true" PackagePath="\" />
-  <ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net9.0'">
+    <None Include="Readme.md" Pack="true" PackagePath="\" />
     <PackageReference Include="Avalonia" Version="12.0.3" />
     <PackageReference Include="Avalonia.Desktop" Version="12.0.3" />
     <PackageReference Include="Markdown.Avalonia" Version="12.0.0-a3" />

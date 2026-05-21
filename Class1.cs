@@ -111,7 +111,7 @@ namespace PopUpWindowNamespace
                 Progressbar.Background = Avalonia.Media.Brushes.Gray;
                 Progressbar.Foreground = new SolidColorBrush(TextColor);
                 Canvas.SetLeft(Progressbar, 15);
-                Canvas.SetTop(Progressbar, height - 35);
+                Canvas.SetTop(Progressbar, height - 20);
                 PopUpWindowCanvas.Children.Add(Progressbar);
             }
 

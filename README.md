@@ -26,7 +26,7 @@ namespace popUpTest
         }
         public async void TestingStuff()
         {
-            popup.PopUpWindow(false, true, Avalonia.Media.Colors.Black, Avalonia.Media.Colors.White, 500, 150, Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Converter.ico"), "Example", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Converter.png"), "This is an easy example :)", true, true, true, true); 
+            popup.PopUpWindow(false, true, Avalonia.Media.Colors.Black, Avalonia.Media.Colors.White,true, 500, 150, Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Converter.ico"), "Example", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Converter.png"), "This is an easy example :)", true, true, true, true); 
             popup.YesButton.Click += YesClickVoid;
             popup.OkButton.Click += OkClickVoid;
             popup.NoButton.Click += NoClickVoid;

@@ -111,7 +111,7 @@ namespace PopUpWindowNamespace
                 Progressbar.Background = Avalonia.Media.Brushes.Gray;
                 Progressbar.Foreground = new SolidColorBrush(TextColor);
                 Canvas.SetLeft(Progressbar, 15);
-                Canvas.SetTop(Progressbar, height - 20);
+                Canvas.SetTop(Progressbar, height - 60);
                 PopUpWindowCanvas.Children.Add(Progressbar);
             }
 
@@ -183,7 +183,7 @@ namespace PopUpWindowNamespace
             MainText.Width = ActualPopUp.Width - 30;
             MainText.Height = ActualPopUp.Height - 15;
             Progressbar.Width = ActualPopUp.Width - 30;
-            Canvas.SetTop(Progressbar, ActualPopUp.Height - 50);
+            Canvas.SetTop(Progressbar, ActualPopUp.Height - 60);
             Canvas.SetLeft(YesButton, ActualPopUp.Width / 2);
             Canvas.SetTop(YesButton, ActualPopUp.Height - 40);
             Canvas.SetLeft(OkButton, ActualPopUp.Width / 2 + 60);

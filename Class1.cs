@@ -22,11 +22,19 @@ namespace PopUpWindowNamespace
         public bool noButtonPressed = false;
         public bool yesButtonPressed = false;
 
-        public async void PopUpWindow(bool Markdown, bool CanResize, Avalonia.Media.Color WindowColor, Avalonia.Media.Color TextColor, int width, int height, string windowIcon, string title, string popUpIcon, string text, bool progressBar, bool okButton, bool yesButton, bool noButton)
+        public async void PopUpWindow(bool Markdown, bool CanResize, Avalonia.Media.Color WindowColor, Avalonia.Media.Color TextColor, bool MinSizingIsSize, int width, int height, string windowIcon, string title, string popUpIcon, string text, bool progressBar, bool okButton, bool yesButton, bool noButton)
         {
             ActualPopUp.Title = title;
+
             ActualPopUp.Width = width;
             ActualPopUp.Height = height;
+
+            if (MinSizingIsSize == true)
+            {
+                ActualPopUp.MinWidth = width;
+                ActualPopUp.MinHeight = height;
+            }
+
             ActualPopUp.CanResize = false;
             ActualPopUp.Icon = new WindowIcon(windowIcon);
             var PopUpWindowCanvas = new Canvas();
@@ -43,16 +51,19 @@ namespace PopUpWindowNamespace
                 MarkdownView.Height = height - 50;
                 MarkdownView.ZIndex = 1;
                 MarkdownView.Markdown = text;
+
                 if(popUpIcon!= null)
                 {
                     Canvas.SetLeft(MarkdownView, 80);
                     Canvas.SetTop(MarkdownView, 15);
                 }
+
                 if(popUpIcon == null)
                 {
                     Canvas.SetLeft(MarkdownView, 15);
                     Canvas.SetTop(MarkdownView, 15);
                 }
+
                 PopUpWindowCanvas.Children.Add(MarkdownView);
             }
 
@@ -61,17 +72,22 @@ namespace PopUpWindowNamespace
                 MainText.Text = text;
                 MainText.Width = width - 30;
                 MainText.Height = height - 15;
-                Canvas.SetLeft(MainText, 30);
-                Canvas.SetTop(MainText, 30);
+                
+                if (popUpIcon == null)
+                {
+                    Canvas.SetLeft(MainText, 15);
+                    Canvas.SetTop(MainText, 15);
+                }
+
+                if(popUpIcon != null)
+                {
+                    Canvas.SetLeft(MainText, 30);
+                    Canvas.SetTop(MainText, 30);
+                }
             }
 
             PopUpWindowCanvas.Children.Add(MainText);
 
-            if (popUpIcon == null)
-            {
-                Canvas.SetLeft(MainText, 15);
-                Canvas.SetTop(MainText, 15);
-            }
 
             if(popUpIcon != null)
             {
@@ -105,7 +121,7 @@ namespace PopUpWindowNamespace
                 YesButton.Height = 30;
                 YesButton.ZIndex = 1;
                 Canvas.SetLeft(YesButton, width / 2);
-                Canvas.SetTop(YesButton, height - 15);
+                Canvas.SetTop(YesButton, height - 40);
                 YesButton.Content = "Yes";
                 YesButton.Foreground = new SolidColorBrush(TextColor);
                 YesButton.BorderBrush = new SolidColorBrush(TextColor);
@@ -119,7 +135,7 @@ namespace PopUpWindowNamespace
                 OkButton.Height = 30;
                 OkButton.ZIndex = 1;
                 Canvas.SetLeft(OkButton, width / 2 + 60);
-                Canvas.SetTop(OkButton, height - 15);
+                Canvas.SetTop(OkButton, height - 40);
                 OkButton.Content = "Ok";
                 OkButton.Foreground = new SolidColorBrush(TextColor);
                 OkButton.BorderBrush = new SolidColorBrush(TextColor);
@@ -133,7 +149,7 @@ namespace PopUpWindowNamespace
                 NoButton.Height = 30;
                 NoButton.ZIndex = 1;
                 Canvas.SetLeft(NoButton, width / 2 + 120);
-                Canvas.SetTop(NoButton, height - 15);
+                Canvas.SetTop(NoButton, height - 40);
                 NoButton.Content = "No";
                 NoButton.Foreground = new SolidColorBrush(TextColor);
                 NoButton.BorderBrush = new SolidColorBrush(TextColor);
@@ -169,11 +185,11 @@ namespace PopUpWindowNamespace
             Progressbar.Width = ActualPopUp.Width - 30;
             Canvas.SetTop(Progressbar, ActualPopUp.Height - 50);
             Canvas.SetLeft(YesButton, ActualPopUp.Width / 2);
-            Canvas.SetTop(YesButton, ActualPopUp.Height - 25);
+            Canvas.SetTop(YesButton, ActualPopUp.Height - 40);
             Canvas.SetLeft(OkButton, ActualPopUp.Width / 2 + 60);
-            Canvas.SetTop(OkButton, ActualPopUp.Height - 25);
+            Canvas.SetTop(OkButton, ActualPopUp.Height - 40);
             Canvas.SetLeft(NoButton, ActualPopUp.Width / 2 + 120);
-            Canvas.SetTop(NoButton, ActualPopUp.Height - 25);
+            Canvas.SetTop(NoButton, ActualPopUp.Height - 40);
         }
     }
 }

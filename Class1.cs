@@ -167,13 +167,13 @@ namespace PopUpWindowNamespace
             MainText.Width = ActualPopUp.Width - 30;
             MainText.Height = ActualPopUp.Height - 15;
             Progressbar.Width = ActualPopUp.Width - 30;
-            Canvas.SetTop(Progressbar, ActualPopUp.Height - 35);
+            Canvas.SetTop(Progressbar, ActualPopUp.Height - 50);
             Canvas.SetLeft(YesButton, ActualPopUp.Width / 2);
-            Canvas.SetTop(YesButton, ActualPopUp.Height - 15);
+            Canvas.SetTop(YesButton, ActualPopUp.Height - 25);
             Canvas.SetLeft(OkButton, ActualPopUp.Width / 2 + 60);
-            Canvas.SetTop(OkButton, ActualPopUp.Height - 15);
+            Canvas.SetTop(OkButton, ActualPopUp.Height - 25);
             Canvas.SetLeft(NoButton, ActualPopUp.Width / 2 + 120);
-            Canvas.SetTop(NoButton, ActualPopUp.Height - 15);
+            Canvas.SetTop(NoButton, ActualPopUp.Height - 25);
         }
     }
 }

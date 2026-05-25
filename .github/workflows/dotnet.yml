@@ -25,7 +25,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Pack Nuget Package
-      run: dotnet pack -c Release  -p:Version=1.0.9 -p:PackageLicenseExpression=MIT -p:RepositoryUrl="https://github.com/DaikoGames/Avalonia.PopUpWindow/" -o publish
+      run: dotnet pack -c Release  -p:Version=1.0.9.1 -p:PackageLicenseExpression=MIT -p:RepositoryUrl="https://github.com/DaikoGames/Avalonia.PopUpWindow/" -o publish
     - name: Publish to Github
       uses: softprops/action-gh-release@v2
       with:

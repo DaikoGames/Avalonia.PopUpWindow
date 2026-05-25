@@ -123,6 +123,7 @@ namespace PopUpWindowNamespace
                 Canvas.SetLeft(YesButton, width / 2);
                 Canvas.SetTop(YesButton, height - 40);
                 YesButton.Content = "Yes";
+                YesButton.Background = Avalonia.Media.Brushes.Gray;
                 YesButton.Foreground = new SolidColorBrush(TextColor);
                 YesButton.BorderBrush = new SolidColorBrush(TextColor);
                 PopUpWindowCanvas.Children.Add(YesButton);
@@ -137,6 +138,7 @@ namespace PopUpWindowNamespace
                 Canvas.SetLeft(OkButton, width / 2 + 60);
                 Canvas.SetTop(OkButton, height - 40);
                 OkButton.Content = "Ok";
+                OkButton.Background = Avalonia.Media.Brushes.Gray;
                 OkButton.Foreground = new SolidColorBrush(TextColor);
                 OkButton.BorderBrush = new SolidColorBrush(TextColor);
                 PopUpWindowCanvas.Children.Add(OkButton);
@@ -151,6 +153,7 @@ namespace PopUpWindowNamespace
                 Canvas.SetLeft(NoButton, width / 2 + 120);
                 Canvas.SetTop(NoButton, height - 40);
                 NoButton.Content = "No";
+                NoButton.Background = Avalonia.Media.Brushes.Gray;
                 NoButton.Foreground = new SolidColorBrush(TextColor);
                 NoButton.BorderBrush = new SolidColorBrush(TextColor);
                 PopUpWindowCanvas.Children.Add(NoButton);

@@ -6,14 +6,12 @@ on:
   workflow_dispatch:
 
 permissions:
-  id-token: write
   contents: write
-  packages: write
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
-    environment: production
 
     steps:
     - uses: actions/checkout@v4
@@ -24,20 +22,14 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Pack Nuget Package
-      run: dotnet pack -c Release -p:Version=1.0.9.2 -p:PackageLicenseExpression=MIT -p:RepositoryUrl="https://github.com/DaikoGames/Avalonia.PopUpWindow/" -o publish
+      run: dotnet pack -c Release  -p:Version=1.0.9.1 -p:PackageLicenseExpression=MIT -p:RepositoryUrl="https://github.com/DaikoGames/Avalonia.PopUpWindow/" -o publish
     - name: Publish to Github
       uses: softprops/action-gh-release@v2
       with:
-        tag_name: 1.0.9.2
-        files: ./publish/Avalonia.PopUpWindow.1.0.9.2.nupkg
+        tag_name: 1.0.9.1
+        files: ./publish/PopUpWindow.1.0.9.1.nupkg
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-    - name: NuGet login
-      uses: NuGet/login@v1
-      id: login
-      with:
-        user: DaikoGames
-
     - name: Publish to Nuget
-      run: dotnet nuget push ./publish/*.nupkg --api-key ${{steps.login.outputs.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json --skip-duplicate
+      run: dotnet nuget push ./publish/*.nupkg --api-key ${{ secrets.APIKey }} --source https://api.nuget.org/v3/index.json --skip-duplicate

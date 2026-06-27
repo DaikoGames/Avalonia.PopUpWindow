@@ -33,5 +33,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
+    - name: Authenticate with NuGet
+      uses: github/authenticating-with-trusted-publishing-to-nuget@v1
+
     - name: Publish to Nuget
       run: dotnet nuget push ./publish/*.nupkg --source https://api.nuget.org/v3/index.json --skip-duplicate

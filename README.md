@@ -1,6 +1,12 @@
 # Avalonia.PopUpWindow
 This is a WIP nuget package that lets you run a pop up window easily in avalonia.
 
+| Dependency | License |
+|:---|:---|
+| [Avalonia](https://www.nuget.org/packages/Avalonia) | [MIT-License](https://licenses.nuget.org/MIT) |
+| [Avalonia.Desktop](https://www.nuget.org/packages/Avalonia.Desktop) | [MIT-License](https://licenses.nuget.org/MIT) |
+| [Markdown.Avalonia](https://www.nuget.org/packages/Markdown.Avalonia/12.0.0-a3) | [MIT-License](https://licenses.nuget.org/MIT) |
+
 this is a good example of a code you can do with the nuget package: 
 
 ```

@@ -2,7 +2,7 @@ name: .NET
 
 on:
   schedule:
-     - cron: '30 14 * * 6' 
+    - cron: '30 14 * * 6'
   workflow_dispatch:
 
 permissions:
@@ -11,30 +11,35 @@ permissions:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
-    
+   
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 9.0.x
-        
+       
     - name: Restore dependencies
       run: dotnet restore
-      
+     
     - name: Pack Nuget Package
-      run: dotnet pack -c Release -p:Version=1.0.9.${{ github.run_number }} -p:PackageLicenseExpression=MIT -p:RepositoryUrl="https://github.com/DaikoGames/Avalonia.PopUpWindow/" -o publish
-      
+      run: |
+        dotnet pack -c Release \
+          -p:PackageId=PopUpWindow \
+          -p:Version=1.0.10.${{ github.run_number }} \
+          -p:PackageLicenseExpression=MIT \
+          -p:RepositoryUrl="https://github.com/DaikoGames/Avalonia.PopUpWindow/" \
+          -o publish
+     
     - name: Publish to Github
       uses: softprops/action-gh-release@v2
       with:
-        tag_name: 1.0.9.${{ github.run_number }}
+        tag_name: 1.0.10.${{ github.run_number }}
         files: ./publish/*.nupkg
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: NuGet login (OIDC → temporary API key)
       id: login
       uses: NuGet/login@v1
